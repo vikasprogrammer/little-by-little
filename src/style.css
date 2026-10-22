@@ -1,0 +1,250 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "../vendor/shadcn-tailwind-4.13.0.css";
+@source "../components/ui";
+@source "../lib";
+:root{--background:#f4f6f9;--foreground:#182536;--card:#fff;--card-foreground:#182536;--popover:#fff;--popover-foreground:#182536;--primary:#2458d3;--primary-foreground:#fff;--secondary:#edf1f7;--secondary-foreground:#182536;--muted:#edf1f7;--muted-foreground:#617084;--accent:#edf2fd;--accent-foreground:#2458d3;--destructive:#b33434;--border:#dce2ea;--input:#cdd5df;--ring:#2458d3;--radius:.75rem}
+@theme inline{--color-background:var(--background);--color-foreground:var(--foreground);--color-card:var(--card);--color-card-foreground:var(--card-foreground);--color-popover:var(--popover);--color-popover-foreground:var(--popover-foreground);--color-primary:var(--primary);--color-primary-foreground:var(--primary-foreground);--color-secondary:var(--secondary);--color-secondary-foreground:var(--secondary-foreground);--color-muted:var(--muted);--color-muted-foreground:var(--muted-foreground);--color-accent:var(--accent);--color-accent-foreground:var(--accent-foreground);--color-destructive:var(--destructive);--color-border:var(--border);--color-input:var(--input);--color-ring:var(--ring);--radius-lg:var(--radius);--font-sans:Inter,Arial,Helvetica,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--background);color:var(--foreground);font-family:Inter,Arial,Helvetica,sans-serif;font-size:16px}button,input{font:inherit}button{cursor:pointer}button:disabled{cursor:wait;opacity:.55}button,a,input{outline-offset:4px}button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--ring)}button{transition:background .15s,color .15s}a{color:inherit;text-decoration:none}.topbar{min-height:100px;border-bottom:1px solid var(--border);background:#fff;padding:24px 5%;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;gap:13px;align-items:center;font-size:21px;font-weight:700;letter-spacing:-.6px}.brand-mark{width:43px;height:43px;border-radius:13px;display:grid;place-items:center;background:#d5ef7c;color:#263d24;transform:rotate(-5deg)}.brand-mark svg{transform:rotate(5deg)}.brand-caption{display:block;font-size:10px;letter-spacing:1.6px;color:#68788a;margin-top:6px;font-weight:600}.save-state{font-size:13px;color:#68788a;display:flex;align-items:center;gap:7px}.workspace{max-width:1340px;margin:auto;padding:54px 5% 28px}.page-heading{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:40px}.eyebrow{color:#617084;font-size:11px;font-weight:700;letter-spacing:1.7px;margin:0 0 12px}h1{font-size:42px;letter-spacing:-1.8px;font-weight:650;line-height:1.1;margin:0 0 13px}.intro{margin:0;color:#617084;font-size:16px}.primary-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:9px;background:#2458d3;color:#fff;padding:13px 18px;font-size:14px;font-weight:600;min-height:44px;white-space:nowrap}.primary-button:hover{background:#1944ac}.view-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid var(--border);padding-bottom:21px;margin-bottom:28px}.view-tabs{background:transparent!important;height:auto!important;padding:0!important;gap:6px!important}.view-tabs [data-slot=tabs-trigger]{padding:10px 15px;border-radius:8px;min-height:42px;color:#647286;font-size:14px}.view-tabs [data-state=active]{background:#fff!important;color:#182536!important;box-shadow:0 1px 4px #1825360b!important;border-color:var(--border)}.tab-count{padding:1px 6px;background:#eef1f6;border-radius:5px;font-size:12px;color:#637084;margin-left:3px}.quiet-count{color:#718094;font-size:13px}.empty-board{background:#fff;border:1px solid var(--border);border-radius:15px;min-height:365px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:45px 24px}.empty-icon{display:grid;place-items:center;width:55px;height:55px;background:#edf2fd;border-radius:17px;color:#2458d3;margin-bottom:22px}.empty-board h2{font-size:22px;font-weight:600;letter-spacing:-.5px;margin:0 0 12px}.empty-board p{max-width:390px;color:#617084;line-height:1.7;font-size:15px;margin:0 0 25px}.board-footer{display:flex;align-items:center;justify-content:space-between;gap:15px;color:#748094;margin-top:32px;font-size:12px}.board-footer span:first-child{display:flex;align-items:center;gap:7px}.board-dialog{border-radius:16px}.field-label{font-size:14px;font-weight:600}.text-input{width:100%;min-height:46px;border:1px solid var(--input);border-radius:8px;padding:11px 12px;background:#fff;font-size:16px;color:#182536}.text-input::placeholder{color:#748094}
+@media(max-width:700px){.topbar{padding:21px 22px;min-height:86px}.save-state{font-size:0}.save-state svg{width:20px;height:20px}.workspace{padding:36px 20px 24px}.page-heading{align-items:flex-start;flex-direction:column;margin-bottom:28px;gap:22px}h1{font-size:36px}.page-heading .primary-button{align-self:flex-start}.quiet-count{display:none}.view-bar{overflow:auto}.view-tabs [data-slot=tabs-trigger]{padding:10px 11px}.tab-count{margin-left:0}.board-footer{flex-direction:column;align-items:flex-start;gap:9px}.brand-caption{font-size:9px}.empty-board{min-height:330px}.empty-board h2{font-size:21px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+.bucket-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:start}.view-context{display:flex;gap:9px;align-items:center;font-size:14px;color:#617084;margin:0 0 21px}.section-label{font-size:11px;letter-spacing:1.5px;font-weight:700;color:#617084}.section-label span{background:#e5eaf2;padding:3px 7px;border-radius:5px;margin-left:8px;letter-spacing:0}.bucket-card{--bucket-color:#2458d3;--bucket-soft:#edf2fd;background:#fff;border:1px solid var(--border);border-top:3px solid var(--bucket-color);border-radius:13px;overflow:hidden;min-width:0;box-shadow:0 3px 9px #18253603}.color-blue{--bucket-color:#2458d3;--bucket-soft:#edf2fd}.color-green{--bucket-color:#218060;--bucket-soft:#edf8f2}.color-orange{--bucket-color:#bd6422;--bucket-soft:#fff4eb}.color-violet{--bucket-color:#7650bc;--bucket-soft:#f4effc}.bucket-header{display:flex;gap:10px;align-items:center;padding:22px 20px 9px}.bucket-header h2{font-size:18px;letter-spacing:-.4px;line-height:1.4;margin:0;flex:1;min-width:0;overflow-wrap:anywhere;font-weight:650}.bucket-symbol{width:33px;height:33px;flex-shrink:0;background:var(--bucket-soft);color:var(--bucket-color);border-radius:9px;display:grid;place-items:center}.icon-button{display:grid;place-items:center;min-width:30px;min-height:32px;border:0;background:transparent;color:#7b8797;border-radius:6px}.icon-button:hover{background:#f0f3f8;color:#182536}.bucket-meta{display:flex;gap:8px;align-items:center;justify-content:space-between;padding:0 20px 17px;color:#738094;font-size:12px;border-bottom:1px solid #edf0f4}.bucket-meta>div{display:flex;gap:3px}.flag-button{display:inline-flex;align-items:center;justify-content:center;gap:4px;width:29px;min-height:30px;background:transparent;border:0;border-radius:6px;color:#8993a2;font-size:12px}.flag-button:hover{background:#f0f3f8;color:#52637b}.flag-button.with-label{width:auto;padding:2px 7px}.flag-button.today.is-active{background:#fff4d9;color:#93610e}.flag-button.important.is-active{background:#fff0de;color:#a1600b}.task-list{padding:9px 14px 0}.task-row{display:flex;align-items:flex-start;gap:10px;padding:13px 4px;border-bottom:1px solid #f0f2f6;min-width:0}.task-row:last-child{border-bottom:0}.task-checkbox{width:20px!important;height:20px!important;border-radius:6px!important;margin-top:5px;box-shadow:none!important}.task-title{text-align:left;flex:1;min-width:0;overflow-wrap:anywhere;font-size:15px;line-height:1.65;border:0;background:transparent;padding:2px 0;color:#2f3c50}.task-title:hover{color:#2458d3}.task-actions{display:flex;gap:0;align-items:center;margin-top:1px;flex-shrink:0}.task-actions .flag-button{width:25px}.task-menu{min-width:24px}.is-done .task-title{color:#8190a2;text-decoration:line-through}.is-done .task-actions{opacity:.6}.bucket-empty{color:#788699;font-size:14px;line-height:1.7;padding:9px 5px;margin:0;min-height:79px}.task-input-form{display:flex;gap:8px;align-items:center;margin:13px 19px 18px;border:1px solid #e5eaf1;border-radius:8px;padding:5px 9px;color:#7a8798;background:#fafbfd}.task-input-form:focus-within{border-color:#829fe8;background:#fff;box-shadow:0 0 0 2px #2458d30a}.task-input-form input{border:0;outline:0;background:transparent;min-width:0;flex:1;font-size:14px;min-height:30px;color:#182536}.task-input-form input::placeholder{color:#788699}.task-input-form button{display:grid;place-items:center;border:0;border-radius:5px;width:26px;height:26px;background:#2458d3;color:#fff}.task-input-form button:disabled{background:transparent;color:#9ba7b7;cursor:default}.done-section{border-top:1px solid #edf0f4;padding:12px 18px;color:#7c8899;font-size:12px}.done-section summary{cursor:pointer;display:flex;align-items:center;gap:6px;list-style:none;min-height:28px}.done-section summary::-webkit-details-marker{display:none}.done-section[open] summary svg{transform:rotate(180deg)}.done-section .task-row{padding:10px 0}.bucket-progress{display:flex;align-items:center;gap:12px;padding:17px 20px;background:#fcfdfe;border-top:1px solid #edf0f4}.bucket-progress [data-slot=progress]{height:4px;background:#ecf0f5;flex:1}.bucket-progress [data-slot=progress-indicator]{background:var(--bucket-color)}.bucket-progress>span{color:#748094;font-size:11px;white-space:nowrap}.add-bucket-card{border:1px dashed #c6ceda;border-radius:13px;min-height:230px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:transparent;color:#68788c}.add-bucket-card:hover{background:#edf1f8;border-color:#94a8d1;color:#2458d3}.add-bucket-card>span:first-child{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#e9edf4}.add-bucket-card strong{font-size:14px;font-weight:500}.add-caption{font-size:12px}.secondary-button{display:inline-flex;align-items:center;justify-content:center;border:1px solid #cdd5df;border-radius:8px;background:#fff;color:#33465d;padding:11px 15px;font-size:14px;min-height:44px}.secondary-button:hover{background:#f4f6f9}.error-banner{display:flex;align-items:center;justify-content:space-between;gap:15px;border:1px solid #efbaba;color:#973f3f;border-radius:10px;padding:13px 16px;font-size:14px;background:#fff5f5;margin-bottom:24px}.error-banner button{font-size:14px;text-decoration:underline;white-space:nowrap}.dialog-error{font-size:14px;line-height:1.6;color:#b33434;margin:0}.edit-form{display:flex;flex-direction:column;gap:13px}.edit-form .primary-button{margin-top:10px}.color-picker{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.color-option{display:flex;align-items:center;gap:9px;font-size:14px;border:1px solid var(--border);border-radius:8px;padding:10px;cursor:pointer}.color-option:has([data-state=checked]){border-color:var(--bucket-color);background:var(--bucket-soft)}.color-dot{width:10px;height:10px;background:var(--bucket-color);border-radius:50%}.loading-card{height:260px;border-radius:13px;background:#e4e9f1}.save-error{color:#ac4141}.spin{animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:1100px){.bucket-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.workspace{padding-left:4%;padding-right:4%}}
+@media(max-width:700px){.bucket-grid{grid-template-columns:1fr;gap:20px}.workspace{padding-left:20px;padding-right:20px}.task-title{font-size:16px}.task-actions .flag-button{width:30px;min-height:34px}.task-menu{min-width:28px}.add-bucket-card{min-height:150px}.error-banner{align-items:flex-start;flex-direction:column}.bucket-header{padding-top:20px}.task-row{padding-top:13px;padding-bottom:13px}.intro{line-height:1.6}}
+
+.topbar{min-height:86px;padding-top:20px;padding-bottom:20px}.workspace{padding-top:38px}.page-heading{margin-bottom:30px}h1{font-size:38px}.view-bar{padding-bottom:17px;margin-bottom:24px}.brand-caption{font-size:12px;letter-spacing:1px}.quiet-count,.bucket-meta,.bucket-empty,.done-section,.bucket-progress>span,.board-footer,.add-caption{color:#5e6e82}.bucket-meta,.done-section,.flag-button.with-label{font-size:14px}.bucket-progress>span{font-size:12px}.section-label{font-size:12px}.flag-button{color:#5e6e82}.task-title{font-size:16px}.is-done .task-title{color:#647388}.add-bucket-card strong{color:#53657d}.save-state{font-size:14px}.task-input-form input::placeholder{color:#617084}
+@media(max-width:700px){.brand{font-size:19px}.brand-caption{font-size:10px;letter-spacing:.8px}.save-state{font-size:0}.save-state span{display:none}.workspace{padding-top:30px}h1{font-size:34px}.topbar{padding-left:20px;padding-right:20px}}
+
+@media(max-width:700px){.view-tabs [data-slot=tabs-trigger]{padding:10px 8px}.tab-count{display:none}.brand-caption{font-size:12px}}
+/* Compact working surface: reduce spacing without shrinking task text. */
+.topbar{min-height:62px;padding:13px 4%;gap:16px}
+.brand{font-size:19px;gap:10px}
+.brand-mark{width:34px;height:34px;border-radius:10px}
+.brand-mark svg{width:20px;height:20px}
+.brand-caption{display:none}
+.workspace{max-width:1440px;padding:24px 4% 20px}
+.page-heading{margin-bottom:18px;gap:16px}
+h1{font-size:28px;letter-spacing:-1px;margin:0}
+.intro{display:none}
+.primary-button{min-height:36px;padding:9px 13px;border-radius:7px}
+.view-bar{padding-bottom:12px;margin-bottom:16px}
+.view-tabs [data-slot=tabs-trigger]{min-height:36px;padding:8px 12px}
+.view-context{margin-bottom:12px}
+.bucket-grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr));gap:16px}
+.bucket-card{border-radius:10px}
+.bucket-header{padding:12px 14px 9px;gap:8px;border-bottom:1px solid #edf0f4}
+.bucket-header h2{font-size:16px;letter-spacing:-.2px}
+.bucket-symbol{width:27px;height:27px;border-radius:7px}
+.bucket-symbol svg{width:16px;height:16px}
+.bucket-meta{padding:0 14px 7px;font-size:14px}
+.task-list{padding:2px 12px 0}
+.task-row{gap:8px;padding:5px 0;align-items:flex-start}
+.task-title{font-size:16px;line-height:1.45;padding:4px 0}
+.task-checkbox{width:18px!important;height:18px!important;border-radius:5px!important;margin-top:7px}
+.task-actions{margin-top:2px}
+.task-actions .flag-button{width:26px;min-height:28px}
+.task-menu{min-width:24px;min-height:28px}
+.bucket-empty{min-height:48px;padding:8px 2px;line-height:1.5}
+.task-input-form{margin:8px 13px 11px;padding:2px 8px}
+.task-input-form input{min-height:29px}
+.done-section{padding:5px 13px}
+.done-section summary{min-height:28px}
+.done-section .task-row{padding:5px 0}
+.bucket-progress{gap:10px;padding:9px 14px}
+.add-bucket-card{min-height:96px;border-radius:10px;flex-direction:row;gap:9px;padding:14px}
+.add-bucket-card>span:first-child{width:30px;height:30px}
+.add-bucket-card>span:first-child svg{width:19px;height:19px}
+.add-caption{display:none}
+.board-footer{margin-top:18px}
+.empty-board{min-height:260px;padding:30px 20px}
+.empty-icon{width:44px;height:44px;border-radius:12px;margin-bottom:16px}
+.empty-board p{margin-bottom:20px}
+.loading-card{height:200px}
+@media(max-width:700px){
+ .topbar{min-height:60px;padding:12px 16px}
+ .workspace{padding:20px 16px}
+ .page-heading{flex-direction:row;align-items:center;gap:10px;margin-bottom:16px}
+ .page-heading .primary-button{align-self:auto}
+ h1{font-size:26px}
+ .view-tabs [data-slot=tabs-trigger]{padding:8px;min-height:36px}
+ .bucket-grid{grid-template-columns:1fr;gap:14px}
+ .task-row{padding:6px 0}
+ .task-actions .flag-button{width:30px;min-height:32px}
+ .task-menu{min-width:28px;min-height:32px}
+ .task-checkbox{margin-top:9px}
+ .task-title{padding:6px 0}
+ .add-bucket-card{min-height:72px}
+}
+@media(max-width:360px){.page-heading{flex-wrap:wrap}.view-tabs [data-slot=tabs-trigger]{padding:8px 6px;gap:4px}}
+.login-shell{min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:24px}.login-card{width:100%;max-width:380px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px}.login-card .brand-mark{margin-bottom:20px}.login-card h1{margin-bottom:12px}.login-description{font-size:16px;line-height:1.5;color:#617084;margin:0 0 26px}.logout-control{position:fixed;bottom:16px;right:16px;display:grid;place-items:center;width:36px;height:36px;background:#fff;border:1px solid var(--border);border-radius:8px;color:#617084;box-shadow:0 2px 6px #1825360b}
+/* Smaller to-do text for a denser personal board. */
+.task-title{font-size:.875rem;line-height:1.5}
+.color-teal{--bucket-color:#0c7c86;--bucket-soft:#ecf9fa}
+.color-pink{--bucket-color:#ad3979;--bucket-soft:#fceff6}
+.color-red{--bucket-color:#b64646;--bucket-soft:#fff1f1}
+.color-yellow{--bucket-color:#986b11;--bucket-soft:#fff8dd}
+.color-sky{--bucket-color:#27769a;--bucket-soft:#eef8fd}
+.color-slate{--bucket-color:#566578;--bucket-soft:#f1f3f6}
+.board-dialog{max-height:calc(100dvh - 2rem);overflow-y:auto}
+.bucket-drag-handle{border:0;cursor:grab;touch-action:pan-y}
+.bucket-drag-handle:hover{background:var(--bucket-soft);box-shadow:0 0 0 2px var(--bucket-color)}
+.bucket-drag-handle:active{cursor:grabbing}
+.bucket-drag-handle:disabled{cursor:wait}
+.bucket-is-dragging{opacity:.5}
+.bucket-drop-target{outline:2px solid var(--primary);outline-offset:3px}
+@media(prefers-reduced-motion:no-preference){.bucket-card{transition:opacity .15s,outline-color .15s}}
+.heading-actions{display:flex;align-items:center;gap:10px}
+.settings-button{width:36px;height:36px}
+.task-copy{flex:1;min-width:0}
+.task-copy .task-title{width:100%;display:block}
+.expiry-cue{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;font-size:11px;line-height:1.5;padding:0 0 4px;color:#826733}
+.expiry-cue button,.text-button{border:0;background:transparent;color:#53657d;font-size:12px;padding:2px 0;text-decoration:underline;text-underline-offset:3px}
+.expiry-cue button:hover,.text-button:hover{color:#2458d3}
+.is-expired .task-title{color:#617084}
+.is-expired .expiry-cue{color:#738094}
+.settings-note{font-size:13px;line-height:1.6;color:#617084;margin:0}
+.expiry-setting{display:flex;align-items:center;gap:10px;font-size:14px;color:#617084}
+.expiry-setting input{width:95px;font-size:16px}
+.archive-link{display:flex;align-items:center;gap:8px;background:transparent;border:0;border-top:1px solid var(--border);padding:16px 0 0;font-size:14px;color:#617084}
+.archive-link:hover{color:#2458d3}
+.edit-expiry{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px}
+@media(max-width:700px){.heading-actions{gap:5px}.view-tabs [data-slot=tabs-trigger]{font-size:13px;padding:8px 7px}}
+
+.view-bar{flex-wrap:wrap;gap:8px 16px}
+.view-bar .heading-actions{margin-left:auto}
+/* Calm rows: task actions appear on hover/focus; the row highlight carries Today at rest. Touch screens (no hover) always show them. */
+@media (hover:hover){.task-actions>*{opacity:0;transition:opacity .15s}.task-row:hover .task-actions>*,.task-row:focus-within .task-actions>*,.task-actions>[data-state=open]{opacity:1}}
+/* Glanceable Today: the row sits in a soft patch of morning sun. */
+.task-list>.task-row.is-today{position:relative;margin:2px -8px;padding-left:12px;padding-right:8px;border-radius:10px;border-bottom-color:transparent}
+.task-list>.task-row.is-today{background:radial-gradient(120% 140% at 0% 0%,#ffefb8 0%,#fff7dc 38%,#fffdf6 70%,#fff0 100%)}
+.flag-button.today.is-active{background:#ffd862;color:#6e4500;box-shadow:0 1px 0 #e7b53a,0 0 0 3px #ffd8622e}
+.flag-button.today.is-active:hover{background:#ffcd3c}
+/* Add-a-task as the list's next empty line: faint dashed box at rest, words only when you reach for the bucket. */
+.ghost-task{display:flex;align-items:center;gap:10px;width:calc(100% - 24px);margin:0 12px 8px;padding:11px 4px;border:0;background:transparent;color:#8593a5;font-size:15px;text-align:left;border-radius:8px}
+.ghost-check{width:20px;height:20px;flex-shrink:0;border:1.5px dashed #cbd3dd;border-radius:6px;transition:border-color .2s}
+.ghost-label{opacity:0;transition:opacity .2s}
+.bucket-card:hover .ghost-label,.ghost-task:focus-visible .ghost-label{opacity:1}
+.ghost-task:hover:not(:disabled){color:var(--bucket-color)}.ghost-task:hover:not(:disabled) .ghost-check{border-color:var(--bucket-color)}
+@media (hover:none){.ghost-label{opacity:.85}}
+.task-input-form,.task-input-form:focus-within{display:flex;flex-direction:column;align-items:stretch;gap:3px;margin:0 12px 8px;padding:7px 4px;border:0;border-radius:0;background:transparent;box-shadow:none}
+.task-input-row{display:flex;gap:10px;align-items:center;border-bottom:1.5px solid var(--bucket-color);padding-bottom:3px}
+.task-input-form .ghost-check{border-color:var(--bucket-color)}
+.task-input-form input{font-size:15px}
+.task-input-hint{font-size:11px;color:#8593a5;padding:0 0 2px 30px}
+/* The empty add-line stays invisible until you hover the bucket (or tab to it); touch screens always show it. */
+@media (hover:hover){.ghost-task{opacity:0;transition:opacity .2s}.bucket-card:hover .ghost-task,.ghost-task:focus-visible{opacity:1}}
+/* Wins: a brief burst on completion and a jar of today's pebbles. Calm at rest, nothing loops. */
+.topbar-right{display:flex;align-items:center;gap:14px}
+.win-burst{position:fixed;width:0;height:0;pointer-events:none;z-index:60}
+.win-burst span{position:absolute;left:-3px;top:-3px;width:6px;height:6px;border-radius:50%;animation:win-burst .6s cubic-bezier(.2,.7,.3,1) forwards}
+.win-burst.is-golden span{width:7px;height:7px;animation-duration:.85s}
+@keyframes win-burst{0%{transform:translate(0,0) scale(.6);opacity:1}70%{opacity:1}100%{transform:translate(var(--dx),var(--dy)) scale(.2);opacity:0}}
+.wins-jar{display:inline-flex;align-items:center;gap:5px;border:0;background:transparent;padding:4px 6px;border-radius:9px;color:#68788a}
+.wins-jar:hover{background:#f0f3f8}
+.wins-jar svg{overflow:visible}
+.jar-glass{fill:#f6f9fc;stroke:#b9c4d2;stroke-width:1.5;stroke-linejoin:round}
+.jar-lid{fill:#d6dde7}
+.wins-jar.has-wins .jar-glass{stroke:#97a6b8}
+.pebble{fill:var(--bucket-color);stroke:#fff;stroke-width:.8}
+.pebble.is-golden{fill:#f5b81c;stroke:#fff3c4}
+.pebble.is-new{animation:pebble-drop .55s cubic-bezier(.3,1.4,.5,1) both;transform-box:fill-box;transform-origin:center}
+@keyframes pebble-drop{0%{transform:translateY(-16px);opacity:0}40%{opacity:1}100%{transform:translateY(0)}}
+.wins-count{font-size:13px;font-weight:600;color:#3d4c60;min-width:8px}
+.wins-menu{min-width:220px;max-width:300px;padding:6px}
+.wins-menu ul{list-style:none;margin:0;padding:0 4px 4px;max-height:280px;overflow:auto}
+.wins-menu li{display:flex;align-items:baseline;gap:8px;padding:5px 4px;font-size:14px;color:#2f3c50;overflow-wrap:anywhere}
+.wins-menu p{margin:0;padding:4px 8px 8px;font-size:13px;color:#68788a}
+.wins-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;background:var(--bucket-color)}
+.wins-dot.is-golden{background:#f5b81c}
+@media (prefers-reduced-motion:reduce){.pebble.is-new{animation:none}}
+/* Lighter chrome: no divider under the tabs, and a slimmer reserved add-line in each bucket. */
+.view-bar{border-bottom:0;padding-bottom:0;margin-bottom:22px}
+.ghost-task{padding:6px 4px;margin-bottom:6px}
+.task-input-form,.task-input-form:focus-within{padding:4px 4px;margin-bottom:6px}
+/* Phones: tabs, settings and a compact + stay on one row. */
+@media(max-width:700px){.view-bar{flex-wrap:nowrap;gap:8px}.view-bar .heading-actions{margin-left:auto;flex-shrink:0}}
+@media(max-width:520px){.heading-actions .primary-button{width:38px;height:38px;min-height:38px;padding:0;margin:0}.heading-actions .button-label{display:none}}
+/* Keep hover-only controls hidden while a save is in flight: `button:disabled` dims to .55 and would otherwise reveal them all. */
+@media (hover:hover){
+.task-row .task-actions>*,.bucket-card .ghost-task{opacity:0}
+.task-row:hover .task-actions>*,.task-row:focus-within .task-actions>*,.task-row .task-actions>[data-state=open],.bucket-card:hover .ghost-task,.bucket-card .ghost-task:focus-visible{opacity:1}
+.task-row:hover .task-actions>:disabled,.bucket-card:hover .ghost-task:disabled{opacity:.55}
+}
+
+/* Quiet endings: a finished bucket says so in one line; Done is a single muted line you can open. */
+.done-section{border-top:0;padding:2px 13px 8px}
+.done-section summary{display:inline-flex;gap:5px;min-height:26px;font-size:13px;color:#8592a3}
+.done-section summary:hover{color:var(--bucket-color)}
+.done-section summary svg{opacity:.6;transition:transform .2s}
+.done-count{font-variant-numeric:tabular-nums}
+.done-section .task-row{border-bottom:0}
+.done-section .task-row .task-checkbox[data-state=checked]{background:var(--bucket-color);border-color:var(--bucket-color);opacity:.55}
+.done-section .is-done .task-title{color:#8592a3;text-decoration-color:color-mix(in srgb,var(--bucket-color) 40%,transparent)}
+
+/* Brain dump, then pick up to three. One calm box, then one short list. */
+.quiet-button{display:inline-flex;align-items:center;gap:7px;min-height:38px;padding:0 12px;border:1px solid #dfe4ec;border-radius:9px;background:#fff;color:#4d5f77;font-size:14px}
+.quiet-button:hover{border-color:#b9c6da;color:#2458d3}
+@media(max-width:520px){.quiet-button{width:38px;padding:0;justify-content:center}}
+.plan-dialog{max-width:560px;gap:12px}
+.plan-head{display:flex;align-items:center;gap:10px;padding-right:28px}
+.dump-ring circle{fill:none;stroke:#e6eaf0;stroke-width:2.4}
+.dump-ring .dump-ring-fill{stroke:#9fb3d6;stroke-linecap:round;transform:rotate(-90deg);transform-origin:center;transition:stroke-dashoffset 1s linear}
+.dump-text{width:100%;min-height:min(46vh,340px);resize:vertical;border:1px solid #e3e8ef;border-radius:10px;padding:14px;font:inherit;font-size:16px;line-height:1.7;color:#22324a;background:#fbfcfd;outline:0}
+.dump-text:focus{border-color:#a9bce3;background:#fff}
+.plan-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:4px}
+.plan-foot .text-button{font-size:13px}
+.plan-foot .primary-button{min-width:96px}
+.pick-count{font-size:13px;color:#7b8899;font-variant-numeric:tabular-nums}
+.pick-count.is-over{color:#a26a0c}
+.pick-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px;max-height:min(52vh,420px);overflow-y:auto}
+.pick-item{display:flex;align-items:center;gap:10px;width:100%;text-align:left;border:1px solid transparent;border-radius:9px;background:transparent;padding:9px 10px;color:#2f3c50;font-size:15px;line-height:1.4}
+.pick-item svg{flex-shrink:0;color:#c4ccd7}
+.pick-item:hover{background:#f5f7fa}
+.pick-item.is-chosen{background:#fff7dc;border-color:#f6e2a4}
+.pick-item.is-chosen svg{color:#d99a0b}
+.pick-title{flex:1;min-width:0;overflow-wrap:anywhere}
+.pick-title::before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--bucket-color);margin-right:9px;vertical-align:2px;opacity:.7}
+.pick-tag{font-size:11px;color:#8592a3;white-space:nowrap}
+.pick-more{align-self:flex-start;font-size:13px}
+.pick-empty{color:#5e6e82;font-size:14px;margin:8px 0}
+.empty-board .secondary-button{gap:8px}
+[role=menuitem] .color-dot{flex-shrink:0}
+
+/* One thing: the whole screen holds a single task. */
+[data-slot=dialog-content].focus-dialog{inset:0;top:0;left:0;--tw-translate-x:0;--tw-translate-y:0;transform:none;width:100%;max-width:none;height:100dvh;border:0;border-radius:0;box-shadow:none;background:#fbfaf6;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px}
+.focus-dialog [data-slot=dialog-close]{top:20px;right:20px}
+.focus-dialog [data-slot=dialog-close] svg{width:20px;height:20px}
+.focus-dots{position:absolute;top:28px;left:50%;translate:-50% 0;display:flex;gap:8px}
+.focus-dots span{width:8px;height:8px;border-radius:50%;background:#e2e5ea;transition:background .3s,transform .3s}
+.focus-dots span.is-done{background:var(--bucket-color);opacity:.55}
+.focus-dots span.is-current{background:var(--bucket-color);transform:scale(1.35)}
+.focus-card{display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;max-width:640px;width:100%;animation:focus-in .5s ease-out}
+@keyframes focus-in{from{opacity:0;transform:translateY(6px)}}
+.focus-bucket{font-size:13px;letter-spacing:.3px;color:var(--bucket-color);opacity:.8}
+.focus-title{margin:0;font-size:clamp(26px,4.2vw,38px);line-height:1.3;letter-spacing:-.6px;font-weight:600;color:#1d2a3c;overflow-wrap:anywhere}
+.focus-note{margin:-6px 0 0;color:#6a788b;font-size:15px}
+.focus-actions{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:18px}
+.focus-done{display:inline-flex;align-items:center;gap:9px;min-height:52px;padding:0 30px;border:0;border-radius:999px;background:var(--bucket-color);color:#fff;font-size:17px;font-weight:600;box-shadow:0 6px 18px color-mix(in srgb,var(--bucket-color) 25%,transparent)}
+.focus-done:hover{filter:brightness(1.08)}
+.focus-actions .text-button{font-size:14px}
+
+/* Made progress: a half-filled box on the task, a hollow pebble in the jar. Partial counts. */
+/* The checkbox is a little vessel: it fills a step at a time, with a soft meniscus, and rises when you log a step. */
+.task-row .task-checkbox{position:relative;overflow:hidden}
+.task-row .task-checkbox::before{content:'';position:absolute;left:-1px;right:-1px;bottom:0;height:0;background:color-mix(in srgb,var(--bucket-color) 42%,#fff);border-radius:45% 45% 0 0/3px 3px 0 0;transition:height .7s cubic-bezier(.3,1.3,.5,1);pointer-events:none}
+.task-row.has-progress .task-checkbox[data-state=unchecked]{border-color:color-mix(in srgb,var(--bucket-color) 55%,#c8d0db)}
+.task-row.has-progress .task-checkbox[data-state=unchecked]::before{height:var(--fill)}
+.task-row.stepped-today .task-checkbox[data-state=unchecked]::before{background:color-mix(in srgb,var(--bucket-color) 62%,#fff)}
+.task-row .task-checkbox[data-state=checked]::before{height:0}
+.flag-button.step.is-active{color:var(--bucket-color);background:color-mix(in srgb,var(--bucket-color) 10%,#fff)}
+.pebble.is-step{fill:#fff;stroke:var(--bucket-color);stroke-width:1.3}
+.wins-dot.is-step{background:transparent;box-shadow:inset 0 0 0 1.5px var(--bucket-color)}
+.wins-step{color:#8592a3;font-size:12px}
+.focus-step{display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:0 20px;border:1px solid color-mix(in srgb,var(--bucket-color) 35%,transparent);border-radius:999px;background:#fff;color:var(--bucket-color);font-size:15px;font-weight:500}
+.focus-step:hover{background:color-mix(in srgb,var(--bucket-color) 7%,#fff)}
+.focus-stepped{display:inline-flex;align-items:center;gap:7px;min-height:42px;color:#6a788b;font-size:14px}
+
+/* A task you just typed: already on the list, its box faint until it has saved. */
+.task-row.is-pending .task-title{cursor:default;color:#5d6c80}
+.pending-check{width:18px;height:18px;margin-top:7px;flex-shrink:0;border-radius:5px;border:1.5px dashed color-mix(in srgb,var(--bucket-color) 45%,#cdd5df)}
+@media(max-width:700px){.pending-check{margin-top:9px}}
