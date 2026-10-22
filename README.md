@@ -2,6 +2,8 @@
 
 A calm, private to-do board designed for ADHD brains. Empty your head, pick up to three things, and do one at a time.
 
+[![Deploy on InstaPods](https://instapods.com/deploy-button.svg)](https://app.instapods.com/dashboard/pods/create?app=little-by-little)
+
 ![The board: buckets of tasks, today's picks highlighted, and a jar of today's wins](docs/screenshots/board.png)
 
 ## Why it looks like this
@@ -53,7 +55,9 @@ The endpoint is `/mcp`, using Streamable HTTP. Send the agent token from `.local
 
 ## Deploying
 
-This is a single Node process with no external database. In production:
+The quickest way is the **Deploy on InstaPods** button at the top, which sets up a ready-to-run pod in one click.
+
+To host it yourself: it's a single Node process with no external database. In production:
 
 1. Run `npm ci` and `npm run build`, then `npm start`.
 2. Set these environment variables:
